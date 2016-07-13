@@ -1,0 +1,207 @@
+@font-face {
+   font-family: 'Chela One';
+   src: url(http://themes.googleusercontent.com/static/fonts/chelaone/v1/DHUBEAsCcSRMyWTJ6sisfj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+  }
+
+a {
+    text-decoration:none;
+    
+}
+
+
+a:link {
+    color: #666;
+}
+a:visited {
+    color: #666;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    background: #D4D9DD url('images/bg01.jpg');
+    width: 100%;
+}
+#enchant {
+    width:450px;
+    height:450px;
+}
+.BannerArea {
+    width: 130px;
+    height: 100%;
+    text-align:center;
+    padding: 20px;
+    vertical-align: top;
+}
+.banner {
+    background-color: #BBB;
+    text-align:center;
+    height: 100%;
+    padding: 20px;
+}
+.content {
+    margin: auto;
+    height: 380px;
+}
+
+
+header {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    height: 80px;
+    background: #D4D9DD url('images/bg01.jpg');   
+}
+
+h1 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.title {
+    float: left;
+    color: #EFEFEF;
+    text-align: left;
+    font-size: 250%;
+    padding: 15px;
+    font-weight: bold;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+.menu {
+    border-left: solid 1px rgba(255, 255, 255, 0.8);
+    float: right;
+    padding: 28px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.menu:hover {
+    background-color: rgba(255,255,255,0.8);
+    color: #666;
+}
+
+.linkTitle {
+    color: #DDD;   
+}
+.linkTitle:link {
+    color: #DDD;   
+}
+.linkTitle:visited {
+    color: #DDD;   
+}
+
+.footerBanner {
+    background-color: #BBB;
+    text-align: center;
+    padding: 20px;
+    display: inline-block;
+    margin: auto;
+}
+
+.footerBannerArea {
+    text-align:center;
+    padding: 15px;
+}
+
+
+.appInfo {
+    text-align:center;
+    color: #FFF;
+    padding: 10px;
+}
+
+#content {
+    background: #D4D9DD url('images/bg02.jpg');
+    border-top: solid 1px #999;
+    border-bottom: solid 1px #999;
+}
+
+footer {
+    background: #D4D9DD url('images/bg01.jpg');   
+}   
+
+
+
+.contact {
+    text-align: center;
+    color: #FFF;
+    margin: 10px;
+}
+
+.footerInfo {
+    text-align: center;
+    color: #FFF;
+    height: 130px;
+}
+
+.contactLabel {
+    margin: auto;
+    width: 300px;
+    background-color: #DDD;
+    color: #666;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.contactText {
+    margin: auto;
+    color: #666;
+    font-size; 150%;
+    font-weight: bold;
+    width: 80%;
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+}
+
+.snsLink {
+    font-size: 250%;
+    margin: 15px;
+}
+
+.footerMenuArea {
+    display: none;
+    height: 60px;   
+}
+.footerMenu {
+    color: #DDD;
+    font-weight: bold;
+    float: left;
+    background-color: #9a9a9a;
+    width: 48%;
+    margin: 1%;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.footerMenu:hover {
+    background-color: rgba(255,255,255,0.8);
+    color: #666;
+}
+
+.footerMenu a:link {
+    color: #666;
+}
+.footerMenu a:visited {
+    color: #666;
+}
+
+@media screen and (max-width: 680px){
+    .BannerArea{
+        display: none;
+    }
+    .banner {
+        display: none;
+    }
+    .footerBanner {
+        display: block;
+    }
+    .menu {
+        display: none;  
+    }
+    .footerMenuArea {
+        display: block;  
+    }
+}
