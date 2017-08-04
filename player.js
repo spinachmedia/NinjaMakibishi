@@ -3,7 +3,7 @@ mapMax = 19;
 //プレイヤーのx座標（固定）
 playerX = 30;
 //ジャンプの時間
-jumpFrame = 10;
+jumpFrame = 20;
 //空中待機時間
 airWaitTime = 7;
 //画面の高さ
@@ -12,6 +12,8 @@ windowHeight = 288;
 blockHeight = 16;
 //ブラックの積みレベル
 blockLevel = 5;
+
+animationCounter=0;
 
 STATUS = {
     WAIT : 0,
@@ -77,11 +79,15 @@ Player.prototype = {
     },
     //--------------------------------------
     running : function() {
-        if (this.sprite.frame == 2) {
-            this.sprite.frame = 3;
-        } else {
-            this.sprite.frame = 2;
-        }
+      if(animationCounter > 8){
+        animationCounter = 0;
+      }
+      if (animationCounter < 4) {
+        this.sprite.frame = 3;
+      } else {
+        this.sprite.frame = 2;
+      }
+      animationCounter++;
     },
     //--------------------------------------
     jump : function() {
@@ -152,7 +158,7 @@ Player.prototype = {
     },
     //--------------------------------------
     mistake : function() {
-        this.sprite.frame = 4;
+        this.sprite.frame = 5;
         this.sprite.tl.delay(20)
             .moveTo(playerX, 152, 12, enchant.Easing.CIRC_EASEIN)
             .rotateBy(720, 15)

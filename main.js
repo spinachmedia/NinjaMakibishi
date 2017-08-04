@@ -9,8 +9,8 @@ var playFlg = true;
 
 //初回処理
 window.onload = function() {
-    var game = new Core(320, 320);
-    game.fps = 30;
+  var game = new Core(320, 320);
+    game.fps = 60;
     game.preload('img.png','map.png','bg.png');
     game.onload = function() {
         pushStart(game);
