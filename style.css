@@ -112,6 +112,11 @@ h1 {
     color: #FFF;
     padding: 10px;
 }
+.ad {
+  text-align:center;
+  color: #FFF;
+  padding: 10px;
+}
 
 #content {
     background: #D4D9DD url('images/bg02.jpg');
