@@ -103,6 +103,3 @@ MapObject.prototype = {
     }
 }
     
-    
-    
-}

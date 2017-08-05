@@ -158,13 +158,13 @@ Player.prototype = {
     },
     //--------------------------------------
     mistake : function() {
-        this.sprite.frame = 5;
-        this.sprite.tl.delay(20)
-            .moveTo(playerX, 152, 12, enchant.Easing.CIRC_EASEIN)
-            .rotateBy(720, 15)
-            .moveTo(playerX, 400, 15, enchant.Easing.CIRC_EASEIN)
-            .then(function(){
-            });
+//        this.sprite.frame = 5;
+//        this.sprite.tl.delay(20)
+//            .moveTo(playerX, 152, 12, enchant.Easing.CIRC_EASEIN)
+//            .rotateBy(720, 15)
+//            .moveTo(playerX, 400, 15, enchant.Easing.CIRC_EASEIN)
+//            .then(function(){
+//            });
     },
     //--------------------------------------
     deathCheck : function(map) {
