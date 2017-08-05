@@ -25,14 +25,25 @@ var HEIGHT = 320;
 //初回処理
 window.onload = function () {
 
+
+
     WIDTH = window.parent.screen.width;
     if (WIDTH > 540) {
         WIDTH = 540;
     }
 
     var game = new Core(WIDTH, HEIGHT);
-    game.fps = 60;
-    game.preload('img.png', 'map.png', 'bg.png');
+    if (getDevice() == "sp") {
+        game.fps = 40;
+    } else if (getDevice() == 'tab') {
+        game.fps = 40;
+    } else if (getDevice() == 'other') {
+        game.fps = 60;
+    } else {
+        game.fps = 60;
+    }
+
+    game.preload('img.png', 'map.png', 'bg.png', 'pr/ninja_01.png', 'pr/ninja_02.png');
     game.onload = function () {
         game.keybind(' '.charCodeAt(0), 'A');
         game.keybind(13, 'B');
@@ -76,25 +87,71 @@ function pushStart(game) {
     var pushStart = setText("PUSH START");
     scene.addChild(pushStart);
 
-    //タッチイベントの生成
-    scene.addEventListener('touchend', function (event) {
-        game.removeScene(scene);
-        delete scene;
-        start(game);
-    });
-    scene.addEventListener('Abuttondown', function () {
-        game.removeScene(scene);
-        delete scene;
-        start(game);
-    });
-    scene.addEventListener('Bbuttondown', function () {
-        game.removeScene(scene);
-        delete scene;
-        start(game);
-    });
+    //初回起動である場合はチュートリアルから。
+    var inited = localStorage.getItem('inited');
+    if (inited) {
+        //タッチイベントの生成
+        scene.addEventListener('touchend', function (event) {
+            game.removeScene(scene);
+            delete scene;
+            start(game);
+        });
+        scene.addEventListener('Abuttondown', function () {
+            game.removeScene(scene);
+            delete scene;
+            start(game);
+        });
+        scene.addEventListener('Bbuttondown', function () {
+            game.removeScene(scene);
+            delete scene;
+            start(game);
+        });
+    } else {
+        //タッチイベントの生成
+        scene.addEventListener('touchend', function (event) {
+            game.removeScene(scene);
+            delete scene;
+            tutorial(game);
+        });
+        scene.addEventListener('Abuttondown', function () {
+            game.removeScene(scene);
+            delete scene;
+            tutorial(game);
+        });
+        scene.addEventListener('Bbuttondown', function () {
+            game.removeScene(scene);
+            delete scene;
+            tutorial(game);
+        });
+    }
 }
 
+function tutorial(game) {
+    //シーン生成
+    var scene = new Scene();
+    game.pushScene(scene);
 
+    //背景生成
+    var bgData = createBg();
+    var bgMap = setBg(game, bgData);
+    scene.addChild(bgMap);
+
+    //マップ生成
+    var mapData = createFirstMap();
+    var map = setMap(game, mapData);
+    scene.addChild(map);
+
+    //プレイヤー生成
+    var player = new Player(game);
+    scene.addChild(player.sprite);
+
+    //プレイヤーのスタンバイ
+    player.status = 1;
+
+    startTutorial(scene,game);
+
+}
+//import { init } from 'ityped';
 /**
  *
  * ゲーム中の処理。
@@ -394,18 +451,18 @@ function addMap(mapArray) {
     for (i = 0; i < mapArray.length; i++) {
         if (i < stageHeight) {
             //上のカベ
-                if(i < stageHeight - 1){
-                    mapArray[i][mapArray[i].length] = 5;
-                } else {
-                    mapArray[i][mapArray[i].length] = 4;
-                }
+            if (i < stageHeight - 1) {
+                mapArray[i][mapArray[i].length] = 5;
+            } else {
+                mapArray[i][mapArray[i].length] = 4;
+            }
         } else if (i >= mapArray.length - stageHeight) {
             //下のカベ
-                if(i >= mapArray.length - stageHeight + 1){
-                    mapArray[i][mapArray[i].length] = 5;
-                } else {
-                    mapArray[i][mapArray[i].length] = 1;
-                }
+            if (i >= mapArray.length - stageHeight + 1) {
+                mapArray[i][mapArray[i].length] = 5;
+            } else {
+                mapArray[i][mapArray[i].length] = 1;
+            }
         } else if (i === stageHeight) {
             //上のトラップ
             if (nextData[0] == null || nextData[0].length == 0) {
