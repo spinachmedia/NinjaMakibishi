@@ -126,6 +126,8 @@ Player.prototype = {
             return;
         }
         
+        score = score + 30;
+        
         //下から二段ジャンプ
         if(this.status == STATUS.JUMPING_FROM_BOTTOM){
             this.status = STATUS.DOUBLE_JUMPING_FROM_BOTTOM;

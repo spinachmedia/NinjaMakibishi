@@ -1,35 +1,39 @@
-var regist = function(score,token){
-//    $.ajax({
-//        type: "POST",
-//        url: "regist.php",
-//        data: "score="+score+"&token="+token,
-//        success: function(msg){
-//        }
-//    });
+var regist = function (score, token) {
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "regist.php",
+    //        data: "score="+score+"&token="+token,
+    //        success: function(msg){
+    //        }
+    //    });
 }
 
-var scoreCheckRegistSpeed = function(score){
-    
-    var speed = 1;
-    
-    if(score > 300000){
-                speed = 9;
-    }else if(score > 100000){
-        speed = 8;
-    }else if(score > 50000){
-        speed = 7;
-    }else if(score > 30000){
-        speed = 6;
-    }else if(score > 10000){
-        speed = 5;
-    }else if(score > 5000){
-        speed = 4;
-    }else if(score > 2000){
-        speed = 3;
-    }else if(score > 500){
-        speed = 2;
+var step = 0.1;
+var tmpMemory = 0;
+var speed = 1.5;
+var threshold = 500;
+
+var resetSpeed = function(){
+    speed = 1.5
+}
+
+var scoreCheckRegistSpeed = function (score) {
+
+    if (Math.floor(score / 500) > tmpMemory) {
+        speed += step;
+        tmpMemory = Math.floor(score / 500);
+    }else{
+        
     }
     
+    if(score > 3000){
+        threshold = 1000;
+        step = 0.3;
+    } else if(score > 5000){
+        threshold = 2000;
+        step = 0.5;
+    }
+
     return speed;
-    
+
 }

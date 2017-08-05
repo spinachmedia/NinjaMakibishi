@@ -21,7 +21,6 @@ html, body{
     padding: 0;
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     background: #D4D9DD url('images/bg01.jpg');
-    width: 100%;
 }
 #enchant {
     width:450px;
@@ -40,11 +39,24 @@ html, body{
     height: 100%;
     padding: 20px;
 }
+
 .content {
+    margin: 0px;
     margin: auto;
     height: 380px;
+    padding: 0px;
 }
-
+.gameArea {
+    width: 100%;
+    max-width: 540px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0px;
+}
+#enchant-stage {
+    width: 100%;
+    max-width: 540px;
+}
 
 header {
     display: block;
@@ -190,6 +202,7 @@ footer {
 .footerMenu a:visited {
     color: #666;
 }
+/*
 
 @media screen and (max-width: 680px){
     .BannerArea{
@@ -208,3 +221,4 @@ footer {
         display: block;  
     }
 }
+*/
